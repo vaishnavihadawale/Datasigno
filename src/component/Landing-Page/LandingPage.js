@@ -1,5 +1,7 @@
-import { useState } from 'react'
-import { Dialog } from '@headlessui/react'
+import { useState } from 'react';
+import { Dialog } from '@headlessui/react';
+import {useNavigate} from "react-router-dom";
+
 import {
   ArrowPathIcon,
   Bars3Icon,
@@ -123,8 +125,11 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-export default function Example() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+export default function LandingPage() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  const navigate = useNavigate();
+
 
   return (
     <div className="bg-white">
@@ -159,7 +164,7 @@ export default function Example() {
             ))}
           </div>
           <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-            <a href="#"  className="text-sm font-semibold leading-6 text-gray-900">
+            <a href="#" onClick={()=>{navigate("/login")}} className="text-sm font-semibold leading-6 text-gray-900">
               Log in <span aria-hidden="true">&rarr;</span>
             </a>
           </div>
